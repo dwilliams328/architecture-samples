@@ -24,6 +24,10 @@ import javax.inject.Inject
 class TaskNetworkDataSource @Inject constructor() : NetworkDataSource {
 
     // A mutex is used to ensure that reads and writes are thread-safe.
+    /**
+     * coroutine-friendly way to prevent race conditions when multiple coroutines
+     * try to read/write shared data at the same time
+     */
     private val accessMutex = Mutex()
 
     // Default list from "data source"

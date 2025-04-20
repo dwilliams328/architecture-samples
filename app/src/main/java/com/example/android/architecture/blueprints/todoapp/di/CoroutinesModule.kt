@@ -27,6 +27,20 @@ import kotlinx.coroutines.SupervisorJob
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
+/* Used for distinguishing between different dependencies of the same type.
+ * @Qualifier works the same as @Named but is better in terms of safety(compile-type as opposed
+ * to a string), readability,
+ * and long-term maintainability
+ *
+ * @Qualifier: Tells Dagger/Hilt this is a qualifier annotation used to differentiate between
+ * multiple instances of the same type.
+ *
+ * @Retention(AnnotationRetention.RUNTIME: Ensures the annotation is available at runtime
+ *
+ * annotation class `CustomAnnotation`: Defines the custom annotation itself. Used on a provider
+ * function and injection site to refer specifically to the Type annotated.
+ */
+
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
 annotation class IoDispatcher
